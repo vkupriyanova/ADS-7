@@ -5,7 +5,7 @@ Train::~Train() {
   if (!first) return;
   Car* currentt = first -> next;
   while (currentt != first) {
-    Car* NextCat = currentt -> next;
+    Car* NextCar = currentt -> next;
     delete currentt;
     currentt = NextCar;
   }
