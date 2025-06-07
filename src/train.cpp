@@ -5,7 +5,7 @@ Train::~Train() {
   if (!first) return;
   Car* currentt = first -> next;
   while (currentt != first) {
-    Car* NextCat = current -> next;
+    Car* NextCat = currentt -> next;
     delete currentt;
     currentt = NextCar;
   }
@@ -27,34 +27,34 @@ void Train::addCar(bool lightON) {
   }
 }
 int Train::getLength() {
-  if (!first) return;
+  if (!first) return 0;
   countOp = 0;
   Car* presentCar = first;
   if (presentCar -> light) {
     presentCar -> light = true;
   }
 }
-int length = 0;
-while (true) {
-  int countStep = 0;
+  int length = 0;
   while (true) {
-    presentCar = presentCar -> next;
-    countStep++;
-    countOp++;
-    if (presentCar -> light || presentCar == first) break;
-  }
-  if (presentCar == first && !presentCar -> light) break;
-  if (presentCar -> light) {
-    presentCar -> light = false;
-  }
-  for (int i = 0; i < countStep; i++){
-    presentCar = presentCar -> prev;
-    countOp++;
-  }
-  if (!presentCar -> light) {
-    length = countStep;
-    break;
-  }
+    int countStep = 0;
+    while (true) {
+      presentCar = presentCar -> next;
+      countStep++;
+      countOp++;
+      if (presentCar -> light || presentCar == first) break;
+    }
+    if (presentCar == first && !presentCar -> light) break;
+    if (presentCar -> light) {
+      presentCar -> light = false;
+    }
+    for (int i = 0; i < countStep; i++) {
+      presentCar = presentCar -> prev;
+      countOp++;
+    }
+    if (!presentCar -> light) {
+      length = countStep;
+      break;
+    }
 }
 return length;
 int Train::getOpCount() {
