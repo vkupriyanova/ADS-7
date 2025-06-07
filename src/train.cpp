@@ -33,7 +33,6 @@ int Train::getLength() {
   if (presentCar -> light) {
     presentCar -> light = true;
   }
-}
   int length = 0;
   while (true) {
     int countStep = 0;
@@ -55,8 +54,9 @@ int Train::getLength() {
       length = countStep;
       break;
     }
+  }
+  return length;
 }
-return length;
 int Train::getOpCount() {
   return countOp;
 }
